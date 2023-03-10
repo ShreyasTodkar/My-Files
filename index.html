@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Temprature Converter</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                FOOT KICKERZZ
-            </div>
-            <div class="menu">
-                <a href="#">HOME</a>
-                <a href="#">KIT</a>
-                <a href="#">MATERIALS</a>
-                <a href="#">ABOUT US</a>
-            </div>
-            <div class="register">
-                <a href="#">Sign-In</a>
-            </div>
-        </nav>
-        <section class="proper">
-            <span>Welcome to our website!</span>
-            <h1>Bring your football materials on our website</h1>
-            <br>
-            <a href="#">REGISTER</a>
-        </section>
-    </header>
+    <h1>Temprature Converter</h1>
+    <div id="container">
+        <div class="one">
+            <label>Celcius</label><br>
+            <input type="number" value="0" id="cel" class="input">
+        </div>
+        <div class="one">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="fah" class="input">
+        </div>
+    </div>
+    <script>
+        var cel = document.getElementById("cel");
+        var fah = document.getElementById("fah");
+        cel.addEventListener('input',function(){
+            let c = this.value;
+            let f = (c*9/5)+32;
+            if(!Number.isInteger(f)){
+                f = f.toFixed(3);
+            }
+            fah.value = f;
+        });
+        fah.addEventListener('input',function(){
+            let f = this.value;
+            let c = (f - 32) * 5/9;
+            if(!Number.isInteger(c)){
+                c = c.toFixed(3);
+            }
+            cel.value = c;
+        });
+    </script>
 </body>
 </html>
